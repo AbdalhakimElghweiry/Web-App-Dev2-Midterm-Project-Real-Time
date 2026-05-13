@@ -6,7 +6,7 @@ services:
     region: oregon # Default Render region
     envVars:
       - key: APP_KEY
-        generateValue: true
+        value: base64:0Vbvup3G0cbppBQ8pxsUlo9nqcZRzGr0TBvT2Lb+xCU=
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
