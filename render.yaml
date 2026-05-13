@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: daily-habit-builder
+    env: docker
+    plan: free
+    region: oregon # Default Render region
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/www/html/database/database.sqlite
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: RUN_MIGRATIONS
+        value: true
