@@ -22,7 +22,7 @@ fi
 
 # Writable dirs (especially when mounting volumes in compose)
 mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache/data storage/logs bootstrap/cache
-chown -R www-data:www-data storage bootstrap/cache
-chmod -R ug+rw storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache database
+chmod -R ug+rw storage bootstrap/cache database
 
 exec docker-php-entrypoint "$@"
