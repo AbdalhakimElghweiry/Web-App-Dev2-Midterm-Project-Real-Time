@@ -1,5 +1,5 @@
 [build]
-builder = "Dckerfile"
+builder = "Dockerfile"
 
 [deploy]
 startCommand = "apache2-foreground"
