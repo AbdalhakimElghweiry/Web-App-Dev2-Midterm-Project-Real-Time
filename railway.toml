@@ -1,7 +1,11 @@
 [build]
-builder = "Dockerfile"
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "apache2-foreground"
+# No startCommand: let the Dockerfile ENTRYPOINT (docker/entrypoint.sh) run,
+# which prepares the app and then exec's the CMD (apache2-foreground).
+healthcheckPath = "/up"
+healthcheckTimeout = 30
 restartPolicyType = "ON_FAILURE"
-restartPolicyMaxRetries = 3
+restartPolicyMaxRetries = 5

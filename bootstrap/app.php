@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => \App\Http\Middleware\EnsureUserIsAdmin::class,
             'user.role' => \App\Http\Middleware\EnsureUserIsNormalUser::class,
         ]);
+
+        // Trust Railway's edge proxy so HTTPS, host, and client IP are detected correctly.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

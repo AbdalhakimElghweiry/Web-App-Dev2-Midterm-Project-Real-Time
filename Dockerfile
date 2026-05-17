@@ -70,6 +70,10 @@ RUN apt-get update \
     && a2enmod rewrite headers
 
 COPY docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/zz-opcache.ini
+
+# Use the production php.ini that ships with the base image.
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Application code (exclude heavy dirs via .dockerignore; vendor from build stage)
 COPY --from=vendor /app/vendor ./vendor
